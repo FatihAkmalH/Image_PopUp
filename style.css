@@ -1,0 +1,123 @@
+@import url('https://fonts.googleapis.com/css2?family=Courgette&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Lexend', sans-serif;
+}
+.wrapper {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    min-height: 100vh;
+    background: linear-gradient(to bottom, #D0D1FF, #DEAAFF);
+}
+.wrapper h2 {
+    font-size: 2.5em;
+    letter-spacing: 2px;
+    line-height: 1.5em;
+    padding: 10px;
+    width: 100%;
+    text-align: center;
+    font-family: 'Courgette', cursive;
+}
+.wrapper .box {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    background: darkred;
+    overflow: hidden;
+    margin: 10px;
+}
+.wrapper .box .img-box {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.4);
+}
+.wrapper .box .img-box.active {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1000;
+}
+.wrapper .box .img-box img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: fill;
+}
+.wrapper .box .img-box.active img {
+    position: absolute;
+    top: 50px;
+    left: 50px;
+    right: 50px;
+    bottom: 50px;
+    width: calc(100% - 100px);
+    height: calc(100% - 100px);
+}
+.wrapper .box .img-box :is(h4, i) {
+    opacity: 0;
+    visibility: hidden;
+}
+.wrapper .box .img-box.active h4{
+    opacity: 1;
+    visibility: visible;
+    text-align: center;
+    color: #fff;
+    font-size: 15px;
+    font-weight: 500;
+    margin-top: 15px;
+    letter-spacing: 4px;
+    cursor: pointer;
+}
+.wrapper .box .img-box.active i {
+    font-size: 15px;
+    opacity: 1;
+    visibility: visible;
+    color: rgb(253, 179, 179);
+}
+.wrapper .box .img-box .content p{
+    position: absolute;
+    bottom: 50px;
+    right: 50px;
+    left: 50px;
+    visibility: hidden;
+    opacity: 0;
+    background: rgba(0,0,0,0.4);
+    padding: 20px;
+    color: #fff;
+    transform: translateY(100%);
+}
+.wrapper .box .img-box.active .content p{
+    visibility: visible;
+    opacity: 1;
+    transform: translateY(0);
+    transition: 1s;
+}
+.wrapper .box .img-box .content h3 {
+    position: absolute;
+    font-size: 20px;
+    left: 50px;
+    top: 50px;
+    visibility: hidden;
+    opacity: 0;
+    background: rgba(0,0,0,0.4);
+    padding: 20px;
+    color: #fff;
+    transform: translateX(-100%);
+}
+.wrapper .box .img-box.active .content h3 {
+    visibility: visible;
+    opacity: 1;
+    transform: translateX(0);
+    transition: 1s;
+}
